@@ -171,6 +171,9 @@
 			<div class="container">
 				<div class="row">
 					<h3 class="header center">{{ _h("Translation API") }}</h3>
+          {% if page_extra_text %}
+          <div id="page-extra-text">{{ page_extra_text }}</div>
+          {% endif %}
 					<div id="translation-type-btns" class="s12 center" v-if="filesTranslation === true">
 						<button type="button" class="btn btn-switch-type" @click="switchType('text')" :class="{'active': translationType === 'text'}">
 							<i aria-hidden="true" class="material-icons">title</i>

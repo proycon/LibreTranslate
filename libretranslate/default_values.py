@@ -216,6 +216,11 @@ _default_options_objects = [
         'default_value': '',
         'value_type': 'str'
     },
+    {
+        'name': 'PAGE_EXTRA_TEXT',
+        'default_value': '',
+        'value_type': 'str'
+    },
 ]
 
 

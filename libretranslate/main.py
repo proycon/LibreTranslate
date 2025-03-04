@@ -215,6 +215,12 @@ def get_args():
         type=str,
         help="Add prefix to URL: example.com:5000/url-prefix/",
     )
+    parser.add_argument(
+        "--page-extra-text",
+        default=DEFARGS['PAGE_EXTRA_TEXT'],
+        type=str,
+        help="Extra text for the front page",
+    )
     args = parser.parse_args()
     if args.url_prefix and not args.url_prefix.startswith('/'):
         args.url_prefix = '/' + args.url_prefix
