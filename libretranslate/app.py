@@ -397,7 +397,8 @@ def create_app(args):
             swagger_url=swagger_url,
             available_locales=sorted([{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)], key=lambda s: s['name']),
             current_locale=get_locale(),
-            alternate_locales=get_alternate_locale_links()
+            alternate_locales=get_alternate_locale_links(),
+            page_extra_text=args.page_extra_text
         ))
 
         if args.require_api_key_secret:
@@ -420,7 +421,7 @@ def create_app(args):
           api_secret = secret.get_current_secret_js()
         else:
           api_secret = secret.get_bogus_secret_js()
-        
+
       response = Response(render_template("app.js.template",
             url_prefix=args.url_prefix,
             get_api_key_link=args.get_api_key_link,
@@ -531,7 +532,7 @@ def create_app(args):
               default: 0
               example: 3
             required: false
-            description: Preferred number of alternative translations 
+            description: Preferred number of alternative translations
           - in: formData
             name: api_key
             schema:
@@ -608,7 +609,7 @@ def create_app(args):
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='source'))
         if not target_lang:
             abort(400, description=_("Invalid request: missing %(name)s parameter", name='target'))
-        
+
         try:
             num_alternatives = max(0, int(num_alternatives))
         except ValueError:
@@ -689,7 +690,7 @@ def create_app(args):
 
                     batch_results.append(translated_text)
                     batch_alternatives.append(alternatives)
-                
+
                 result = {"translatedText": batch_results}
 
                 if source_lang == "auto":
