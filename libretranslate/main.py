@@ -221,6 +221,18 @@ def get_args():
         type=str,
         help="Extra text for the front page",
     )
+    parser.add_argument(
+        "--public-url",
+        default=DEFARGS['PUBLIC_URL'],
+        type=str,
+        help="Public URL (for metadata only)",
+    )
+    parser.add_argument(
+        "--description",
+        default=DEFARGS['DESCRIPTION'],
+        type=str,
+        help="Description (for metadata only)",
+    )
     args = parser.parse_args()
     if args.url_prefix and not args.url_prefix.startswith('/'):
         args.url_prefix = '/' + args.url_prefix

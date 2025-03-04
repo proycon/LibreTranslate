@@ -221,6 +221,16 @@ _default_options_objects = [
         'default_value': '',
         'value_type': 'str'
     },
+    {
+        'name': 'PUBLIC_URL',
+        'default_value': 'https://libretranslate.com',
+        'value_type': 'str'
+    },
+    {
+        'name': 'DESCRIPTION',
+        'default_value': 'Free and Open Source Machine Translation API. Free to download, offline capable and easy to setup. Run your own API server in just a few minutes.',
+        'value_type': 'str'
+    },
 ]
 
 

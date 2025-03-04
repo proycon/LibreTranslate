@@ -398,7 +398,9 @@ def create_app(args):
             available_locales=sorted([{'code': l['code'], 'name': _lazy(l['name'])} for l in get_available_locales(not args.debug)], key=lambda s: s['name']),
             current_locale=get_locale(),
             alternate_locales=get_alternate_locale_links(),
-            page_extra_text=args.page_extra_text
+            page_extra_text=args.page_extra_text,
+            public_url=args.public_url,
+            description=args.description
         ))
 
         if args.require_api_key_secret:
